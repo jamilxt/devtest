@@ -1,5 +1,6 @@
 package co.hishab.devtest.service;
 
+import co.hishab.devtest.config.GameConfig;
 import co.hishab.devtest.model.domain.Player;
 import co.hishab.devtest.service.dice.DiceService;
 import org.junit.jupiter.api.Assertions;
@@ -19,11 +20,12 @@ public class GameServiceTest {
     @InjectMocks
     private GameService gameService;
     @Mock
+    GameConfig gameConfig;
+    @Mock
     PlayerService playerService;
     @Mock
     DiceService diceService;
 
-    @Order(1)
     @Test
     void When_GameWith2Players_Expected_2ndPlayerWin() {
         List<Player> playerList =
@@ -31,7 +33,7 @@ public class GameServiceTest {
                         new Player().setName("A").setAge(12).setId(1L),
                         new Player().setName("B").setAge(12).setId(2L)
                 );
-        when(playerService.getPlayerCount()).thenReturn(Long.valueOf(playerList.size()));
+        when(gameConfig.getWinningScore()).thenReturn(25);
         when(playerService.getPlayers()).thenReturn(playerList);
         when(diceService.rollDice())
                 .thenReturn(
@@ -45,7 +47,6 @@ public class GameServiceTest {
         Assertions.assertEquals(gameService.winnerPlayerId, 2L);
     }
 
-    @Order(2)
     @Test
     void When_GameWith3Players_Expected_3rdPlayerWin() {
         List<Player> playerList =
@@ -54,7 +55,7 @@ public class GameServiceTest {
                         new Player().setName("B").setAge(12).setId(2L),
                         new Player().setName("C").setAge(12).setId(3L)
                 );
-        when(playerService.getPlayerCount()).thenReturn(Long.valueOf(playerList.size()));
+        when(gameConfig.getWinningScore()).thenReturn(25);
         when(playerService.getPlayers()).thenReturn(playerList);
         when(diceService.rollDice())
                 .thenReturn(
@@ -76,7 +77,7 @@ public class GameServiceTest {
                         new Player().setName("Levi").setAge(12).setId(2L),
                         new Player().setName("Cloe").setAge(12).setId(3L)
                 );
-        when(playerService.getPlayerCount()).thenReturn(Long.valueOf(playerList.size()));
+        when(gameConfig.getWinningScore()).thenReturn(25);
         when(playerService.getPlayers()).thenReturn(playerList);
         when(diceService.rollDice())
                 .thenReturn(
@@ -91,7 +92,6 @@ public class GameServiceTest {
         Assertions.assertEquals(gameService.winnerPlayerId, 3L);
     }
 
-    @Order(4)
     @Test
     void When_GameWith3Players_Expected_4thPlayerWin() {
         List<Player> playerList =
@@ -101,7 +101,7 @@ public class GameServiceTest {
                         new Player().setName("C").setAge(12).setId(3L),
                         new Player().setName("D").setAge(12).setId(4L)
                 );
-        when(playerService.getPlayerCount()).thenReturn(Long.valueOf(playerList.size()));
+        when(gameConfig.getWinningScore()).thenReturn(25);
         when(playerService.getPlayers()).thenReturn(playerList);
         when(diceService.rollDice())
                 .thenReturn(
