@@ -4,7 +4,6 @@ import co.hishab.devtest.config.GameConfig;
 import co.hishab.devtest.model.domain.Player;
 import co.hishab.devtest.service.dice.DiceService;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
