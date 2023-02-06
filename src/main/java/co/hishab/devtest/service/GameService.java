@@ -60,7 +60,7 @@ public class GameService {
         int playerPosition = 0;
 
         while (!gameOver) {
-            this.delayPlayerTurns();
+            if (gameConfig.isDelayPlayerTurn()) this.delayPlayerTurns();
 
             var playerId = playersFromDB.get(playerPosition).getId();
 

@@ -2,4 +2,4 @@ board-game:
   max-player: 4
   min-player: 2
   winning-score: 25
-
+  delay-player-turn: true

@@ -13,4 +13,5 @@ public class GameConfig {
     private int maxPlayer;
     private int minPlayer;
     private int winningScore;
+    private boolean delayPlayerTurn;
 }
