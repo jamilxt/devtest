@@ -70,5 +70,8 @@ Before running the app, you can also config the game's maximum & minimum player 
 through this file: `application.yml`
 
 ### Contact
+Jamilur Rahman
+Software Engineer
+Brain Station 23 Ltd.
 Email: [jamilur.rahman@brainstation-23.com](mailto:jamilur.rahman@brainstation-23.com)
 
